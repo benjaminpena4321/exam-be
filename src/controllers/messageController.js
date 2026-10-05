@@ -1,8 +1,15 @@
-const Message = require("../models/Message");
+// controllerMessage.js
+const db = require("../../db"); // Import the shared NeDB instance
 
 const getMessage = async (req, res) => {
   try {
-    const message = await Message.findOne();
+    // Wrap NeDB's callback-based findOne in a Promise to use async/await
+    const message = await new Promise((resolve, reject) => {
+      db.findOne({}, (err, doc) => {
+        if (err) reject(err);
+        resolve(doc);
+      });
+    });
 
     if (!message) {
       return res.status(404).json({
