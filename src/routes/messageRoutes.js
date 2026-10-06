@@ -1,10 +1,20 @@
-const express = require("express");
-const router = express.Router();
+import { Route } from "express";
+import {createData, getAllMsg, updateMsg, deleteMsg} from '../controllers/Message.Controller.js'
+const route = Route()
 
-const {
-  getMessage
-} = require("../controllers/messageController");
+route.post('/create', createData)
+route.get('/', getAllMsg)
+route.put('/:id', updateMsg)
+route.delete('/:id', deleteMsg)
 
-router.get("/", getMessage);
+export default route;
 
-module.exports = router;
+
+
+
+
+
+
+
+
+ 
