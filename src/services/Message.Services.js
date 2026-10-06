@@ -1,10 +1,10 @@
-import Message from "../models/Message";
+import Message from "../models/Message.js";
 
 class MessageService {
     async create(data) {
-        const msg = new Message(data)
-        const data = await msg.save();
-        console.log("Successfully Save : ", data)
+        const msg = new Message(data);
+        const d = await msg.save();c
+        console.log("Successfully Save : ", d)
     }   
 
     async getAll() {

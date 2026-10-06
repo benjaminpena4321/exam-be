@@ -1,20 +1,10 @@
-import { Route } from "express";
-import {createData, getAllMsg, updateMsg, deleteMsg} from '../controllers/Message.Controller.js'
-const route = Route()
+import {createData, getAllMsg, updateMsg  } from  '../controllers/Message.Controller.js'
+import Router from 'router'
 
-route.post('/create', createData)
+const route = Router()
+
+route.post('/', createData)
 route.get('/', getAllMsg)
-route.put('/:id', updateMsg)
-route.delete('/:id', deleteMsg)
+route.put('/:id', updateMsg )
 
 export default route;
-
-
-
-
-
-
-
-
-
- 

@@ -20,7 +20,8 @@ export const getAllMsg = async (req, res) => {
   try {
         const findAllMsg = await MessageService.getAll();
         res.status(200).json({
-            message: "Successfully Fetch", findAllMsg,
+            message: "Successfully Fetch", 
+            data: findAllMsg,
             status: 200
          })
     } catch (error){

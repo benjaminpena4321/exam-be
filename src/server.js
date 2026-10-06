@@ -1,6 +1,7 @@
 import dotenv from 'dotenv'
 import database from '../src/config/database.js'
 import app from './app.js'
+
 dotenv.config({
   path: './.env'
 })
