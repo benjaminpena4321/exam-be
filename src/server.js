@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const messageRoutes = require("./routes/messageRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
 
@@ -21,6 +22,7 @@ mongoose
 
 // Routes
 app.use("/api/messages", messageRoutes);
+app.use("/api/taskRoute", taskRoutes);
 
 app.get("/api/test", (req, res) => {
   res.json({
