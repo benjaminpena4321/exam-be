@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
 
-const messageRoutes = require("./routes/messageRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
 
@@ -20,13 +20,13 @@ mongoose
   });
 
 // Routes
-app.use("/api/messages", messageRoutes);
+app.use("/api/tasks", taskRoutes);
 
-app.get("/api/test", (req, res) => {
-  res.json({
-    message: "MEVN backend is working!"
-  });
-});
+// app.get("/api/test", (req, res) => {
+//   res.json({
+//     message: "MEVN backend is working!"
+//   });
+// });
 
 const PORT = process.env.PORT || 3000;
 

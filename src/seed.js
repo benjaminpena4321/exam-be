@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
 
-const Message = require("./models/Message");
+const Task = require("./models/Task");
 
 const seedDatabase = async () => {
   try {
@@ -9,9 +9,9 @@ const seedDatabase = async () => {
 
     console.log("MongoDB connected");
 
-    await Message.deleteMany({});
+    await Task.deleteMany({});
 
-    await Message.create({
+    await Task.create({
       message: "Hello Human, I'm your information fetched from the database."
     });
 
