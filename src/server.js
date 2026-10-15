@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const messageRoutes = require("./routes/messageRoutes");
+const taskRoutes = require("./routes/taskRoutes");
 
 const app = express();
 
@@ -12,20 +13,14 @@ app.use(express.json());
 
 mongoose
   .connect(process.env.MONGO_URI)
-  .then(() => {
-    console.log("MongoDB connected");
-  })
-  .catch((error) => {
-    console.error("MongoDB connection error:", error);
-  });
+  .then(() => console.log("MongoDB connected"))
+  .catch((error) => console.error("MongoDB connection error:", error));
 
-// Routes
 app.use("/api/messages", messageRoutes);
+app.use("/api/tasks", taskRoutes);
 
 app.get("/api/test", (req, res) => {
-  res.json({
-    message: "MEVN backend is working!"
-  });
+  res.json({ message: "MEVN backend is working!" });
 });
 
 const PORT = process.env.PORT || 3000;
